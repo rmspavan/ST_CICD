@@ -128,7 +128,7 @@ EOL
 7. In sonarqube, create new project and specify the project key and Dispay key
        Project Key: cicdpipeline
        Display Key: demo-cicdpipeline
-       click on Setup and generate token (copy the token, it's required to integrate with maven)
+------>click on Setup and generate token (copy the token, it's required to integrate with maven)
        click continue and select prokject main language(java) and build tool(maven). 
        copy the execte cmd to Run in Maven server.
 

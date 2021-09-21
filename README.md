@@ -4,15 +4,17 @@ CICD-Project: DevOps Project - Jenkins CI - CD for Kubernetes Deployments
 
 DevOps tools  used :
 --------------------
-1. Git
-2. Github
-3. Jenkins
-4. SonarQube
-5. Jfrog
-6. Ansible
-7. Docker
-8. Kubernetes
-9. Apache Tomcat
+1. Git - Local version control system to track the source code changes locally at the developer system
+2. Bit Bucket - Distributed version control system providing code integrity and collaboration between contributors.
+3. Jenkins - CI/CD tools to  integrate all the DevOps tools and provide Continuous Integration and Continuous Deployments.
+4. Apache Maven - Build automation tool to  build Java source code and generate artifacts.
+5. SonarQube - Static code quality analysis tool to analyses code bugs, code smells, vulnerabilities, duplicates etc.
+6. Artifactory - Artifact repository management to store artifacts in version control.
+7. Ansible - Application automation tool to create custom container images automatically and push to DockerHub.
+8. Docker - Docker Engine to create and run  containers.
+9. Apache Tomcat - Application server to  run java applications.
+10. Kubernetes - Container orchestration tool to manage POD deployments automatically in the cluster environment.
+
 
 Concepts used to automate application deployments using Jenkins CI/CD:
 -----------------------------------------------------------------------
