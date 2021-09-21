@@ -1,16 +1,19 @@
+
 1. Installation Steps
    Login to instance as a root user and install Java
 
-     yum install java-1.8* -y 
+     yum install java-1.8* -y or yum install java-openjdk11 -y
+     java -version
 
 2. Download Artifactory packages onto /opt/
-    For Latest version of Artifactory OSS download it from here
-    For Older version of Artifactory OSS download it from here
-    For Latest version of Artifactory Pro download it from here
-
+  
     cd /opt 
-    wget https://jfrog.bintray.com/artifactory/jfrog-artifactory-oss-6.9.6.zip or 
-    https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/[RELEASE]/jfrog-artifactory-oss-[RELEASE]-linux.tar.gz
+    wget https://jfrog.bintray.com/artifactory/jfrog-artifactory-oss-6.9.6.zip    or
+
+    rpm based cmd
+    wget https://releases.jfrog.io/artifactory/artifactory-rpms/artifactory-rpms.repo -O jfrog-artifactory-rpms.repo;
+    sudo mv jfrog-artifactory-rpms.repo /etc/yum.repos.d/;
+    sudo yum update && sudo yum install jfrog-artifactory-oss
 
 3. extract artifactory tar.gz file
 
@@ -21,14 +24,41 @@
     cd /opt/jfrog-artifactory-oss-6.9.6/bin
     ./artifactory.sh start
 
+    or install rpm based install use this cmd's
+    service artifactory start
+    
 5. access artifactory from browser
 
-    http://<PUBLIC_IP_Address>:8081 
+    http://<PUBLIC_IP_Address>:8081 or 8082
 
 6. Provide credentials
 
     username: admin
     password: passwrod 
+
+7. get started and change the new password, select the base URL  http://<PUBLIC_IP_Address>:8081 or 8082
+   create repositories --> maven , click next and finish.
+   Artifactory --> Atifacts --> Set Me Up --> repository: libs-snapshot, type password
+   click on Generate Maven Settings --> Generate setting --> it will generate xml file ( download the seeting.xml file)
+   
+   open setting.xml file, change the <username> admin </username> , <password> admin </password> and <url>http://xx.xx.xx.xx:80810r8082/arti.....</url>
+   
+   7.1 Artifactory --> Atifacts --> Set Me Up --> repository: libs-release --> copy the deploy distributionManagement.
+
+
+8. open maven server 
+   cd .m2  (it will keep all the dependencies in /root/.m2 dir)
+   ls -l
+   cpoly the the setting.xml file and paste it in .m2 dir
+
+   8.1 cd /ST_CICD/ 
+       vi pom.xml
+       paste the deploy distributionManagement in before </project>
+       /opt/apache-maven3.8.2/bin/mvn -U deploy (it will build the project and deploy the articats to artifactory)
+
+9. Please check the .war file in artifactory dashboard
+   artifacts--> libs-release --> project folder 
+
 
 
 
