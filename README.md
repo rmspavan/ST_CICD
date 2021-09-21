@@ -33,13 +33,13 @@ B. Configure SonarQube: (2core and 2gb ram, ports: 22, 5432, 9000, 80 , JDK 11)
 7. check the postgres user is created or not? # tail -1 /etc/passwd
 8. su - postgres
 9. psql
-  # CRREATE USER sonar WITH PASSWORD 'sonar';
-  # ALTER USER sonar WITH SUPERUSER
-  # \du
-  # CREATE DATABASE sonar;
-  # \l
-  # GRANT ALL PRIVILEGES ON DATABASE sonar TO sonar;
-  # \q and exit postgres user
+     CRREATE USER sonar WITH PASSWORD 'sonar';
+     ALTER USER sonar WITH SUPERUSER
+     \du
+     CREATE DATABASE sonar;
+     \l
+     GRANT ALL PRIVILEGES ON DATABASE sonar TO sonar;
+     \q and exit postgres user
 
 10. Edit the pg_hba.conf
     vi /var/lib/pgsql/data/pg_hba.conf
