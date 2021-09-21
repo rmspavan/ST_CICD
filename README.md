@@ -1,5 +1,5 @@
-CICD-Project:
---------------
+CICD-Project: DevOps Project - Jenkins CI - CD for Kubernetes Deployments
+---------------------------------------------------------------------------
 
 * Git
 * GitLab/GitHub
