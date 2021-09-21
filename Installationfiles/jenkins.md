@@ -118,18 +118,13 @@ kubectl logs pod_name -n jenkins to get the password
    admin  ALL=(ALL)  ALL
 
 
+10. Jenkins Pipeline can be written in two modes:
 
+      a. Scripted Pipeline
+      b. Declarative Pipeline
 
-
-     
-
-
-
-
-
-
-
-Jenkins Pipeline can be written in two modes:
-
-Scripted Pipeline
-Declarative Pipeline
+  * Login to jenkins
+  * New Item --> Enter an item Name: CICD-Pipeline --> Pipeline --> Description: CICD Pipeline using Jenkinsfile
+  * Pipelline: Definition: Pipeline script from SCM -->SCM: git --> repository URL: https://github.com/rmspavan/ST_CICD.git; credentials: git; Branch: Masetr-->  Script Path: Jenkinsfile ---> Apply/Save
+  * Build Now
+   
