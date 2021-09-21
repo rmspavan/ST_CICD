@@ -9,14 +9,13 @@ pipeline {
 
       stage ('Checkout SCM'){
         steps {
-          checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/rmspavan/webapp.git']]])
+          checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/rmspavan/ST_CICD.git']]])
         }
       }
 	  
 	  stage ('Build')  {
 	      steps {
-          
-            dir('java-source'){
+            dir('java-source'){ # sh "cd java-source"
             sh "mvn package"
           }
         }
@@ -27,7 +26,7 @@ pipeline {
         steps {
               withSonarQubeEnv('sonar') {
                 
-				dir('java-source'){
+				         dir('java-source'){ # sh "cd java-source"
                  sh 'mvn -U clean install sonar:sonar'
                 }
 				
@@ -39,7 +38,7 @@ pipeline {
             steps {
                 rtServer (
                     id: "jfrog",
-                    url: "http://3.84.217.9:8082/artifactory",
+                    url: "http://jfrogip:8082/artifactory",
                     credentialsId: "jfrog"
                 )
 
@@ -84,8 +83,8 @@ pipeline {
             steps {
                   sshagent(['sshkey']) {
                        
-                        sh "scp -o StrictHostKeyChecking=no Dockerfile ec2-user@34.229.61.202:/home/ec2-user"
-                        sh "scp -o StrictHostKeyChecking=no create-container-image.yaml ec2-user@34.229.61.202:/home/ec2-user"
+                        sh "scp -o StrictHostKeyChecking=no Dockerfile admin@34.229.61.202:/home/admin"
+                        sh "scp -o StrictHostKeyChecking=no create-container-image.yaml admin@34.229.61.202:/home/admin"
                     }
                 }
             
@@ -95,7 +94,7 @@ pipeline {
             steps {
                   sshagent(['sshkey']) {
                        
-                        sh "ssh -o StrictHostKeyChecking=no ec2-user@34.229.61.202 -C \"sudo ansible-playbook create-container-image.yaml\""
+                        sh "ssh -o StrictHostKeyChecking=no admin@34.229.61.202 -C \"sudo ansible-playbook create-container-image.yaml\""
                         
                     }
                 }
@@ -106,7 +105,7 @@ pipeline {
             steps {
                   sshagent(['sshkey']) {
                        
-                        sh "scp -o StrictHostKeyChecking=no create-k8s-deployment.yaml ec2-user@54.162.42.75:/home/ec2-user"
+                        sh "scp -o StrictHostKeyChecking=no create-k8s-deployment.yaml root@54.162.42.75:/root/"
                         #sh "scp -o StrictHostKeyChecking=no nodePort.yaml ec2-user@54.162.42.75:/home/ec2-user"
                     }
                 }
@@ -126,7 +125,7 @@ pipeline {
             steps {
                   sshagent(['sshkey']) {
                        
-                        sh "ssh -o StrictHostKeyChecking=no ec2-user@54.162.42.75 -C \"sudo kubectl apply -f create-k8s-deployment.yaml\""
+                        sh "ssh -o StrictHostKeyChecking=no root@54.162.42.75 -C \"sudo kubectl apply -f create-k8s-deployment.yaml\""
                         #sh "ssh -o StrictHostKeyChecking=no ec2-user@54.162.42.75 -C \"sudo kubectl apply -f nodePort.yaml\""
                         
                     }
