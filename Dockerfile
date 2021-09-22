@@ -3,7 +3,7 @@
 FROM tomcat:latest
 
 # Maintainer
-MAINTAINER "systemizer" 
+MAINTAINER "Systemizer" 
 
 # copy war file on to container 
-COPY ./webapp.war /usr/local/tomcat/webapps
+COPY ./iwayq.war /usr/local/tomcat/webapps

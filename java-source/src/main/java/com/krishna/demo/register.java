@@ -1,4 +1,4 @@
-package com.webapp.demo;
+package com.krishna.demo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

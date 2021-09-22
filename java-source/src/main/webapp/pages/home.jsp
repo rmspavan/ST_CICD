@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Welcome</title>
+<title>Insert title here</title>
 </head>
 <body>
-Already registered!! <a href="login">Login to the app</a>
+Already registered!! <a href="login">Login Here</a>
 </body>
 </html>

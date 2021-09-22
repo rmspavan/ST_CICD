@@ -8,12 +8,12 @@
 		<version>2.2.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.webapp</groupId>
-	<artifactId>webapp</artifactId>
+	<groupId>com.iwayq</groupId>
+	<artifactId>iwayQApp</artifactId>
 	<version>1.0-RELEASE</version>
 	<packaging>war</packaging>
-	<name>webapp</name>
-	<description>webapp DevOps project for Spring Boot</description>
+	<name>iwayQApp</name>
+	<description>iwayQ DevOps project for Spring Boot</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -36,7 +36,11 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-	
+		
+		
+		
+		
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -63,4 +67,5 @@
 			</plugin>
 		</plugins>
 	</build>
+
 </project>

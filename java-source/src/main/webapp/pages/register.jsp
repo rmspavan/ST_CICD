@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Registation</title>
+<title>Insert title here</title>
 </head>
 <body>
 <center>
@@ -15,7 +15,7 @@ ${message }
             <table border="1" width="30%" cellpadding="5">
                 <thead>
                     <tr>
-                        <th colspan="2">Enter Information Details</th>
+                        <th colspan="2">Enter Information Here</th>
                     </tr>
                 </thead>
                 <tbody>
