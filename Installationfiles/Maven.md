@@ -19,7 +19,7 @@ Install Maven on Jenkins (Maven Build Server)
    Note: for testing clone the source code and run manually
          git clone https://github.com/rmspavan/ST_CICD.git
          cd ST_CICD && LL -la (can see pom.xml)
-         /opt/apache-maven.3.8.2/bin/mvn package (to build)
+         /opt/maven/bin/mvn package (to build)
          ll  (can see target dir, it's have all the generated artifacts)
 
 
