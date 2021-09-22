@@ -30,7 +30,18 @@ A. Push the source code to Github/GitLab repository
 
 B. Install and Configure Maven
 
-C. Configure SonarQube: (2core and 2gb ram, ports: 22, 5432, 9000, 80 , JDK 11)
+C. Configure SonarQube: (2cpu and 2gb ram, ports: 22, 5432, 9000, 80 , JDK 11)
         a. Install & Configure PSQL
         b. Install & Configure SonarQube scanner
+
+d. Configure JfrogArtifactory (1cpu & 1gb, ports:8081, 8082)
+
+e. Install and configure Docker & Ansible
+f. Install and setup Kubernetes.
+g. Install and configure Jenkins
     
+Flow:
+-------
+                                                        ---(Code Analysis)--> SonarQube
+                                                       |
+Git ----(commit)----> Github ----(Build)-----> Maven ------(Publish Artifactory)--> Jfrog ---(create container Image)---> Ansible ---(Publish Container Image)--> DockerHub --(Deployto QA)----> K8s ---(Deploy to production)--> K8s(tomcat)
