@@ -6,4 +6,4 @@ FROM tomcat:latest
 MAINTAINER "systemizer" 
 
 # copy war file on to container 
-COPY ./web.war /usr/local/tomcat/webapps
+COPY ./webapp.war /usr/local/tomcat/webapps

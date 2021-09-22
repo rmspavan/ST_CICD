@@ -20,10 +20,10 @@ COPY ./cicd.war /usr/local/tomcat/webapps
 
 4. Create image from Dockerfile
 
-    docker build . --tag STapp-tomcat
+    docker build . --tag webapp-tomcat
 
 5. Create Docker Container
 
-    docker run -d --name STapp -p 8080:8080 STapp-tomcat
+    docker run -d --name STapp -p 8080:8080 webapp-tomcat
     docker ps
     docker logs STapp
