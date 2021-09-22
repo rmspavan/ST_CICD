@@ -36,11 +36,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		
-		
-		
-		
-		
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -67,18 +63,4 @@
 			</plugin>
 		</plugins>
 	</build>
-#	<distributionManagement>
- #   <repository>
- #       <id>central</id>
-  #     <name>ip-172-31-45-224.ec2.internal-releases</name>
-   #     <url>http://3.84.217.9:8082/artifactory/libs-release</url>
-    #</repository>
-#</distributionManagement>
-     <distributionManagement>
-    <repository>
-        <id>central</id>
-        <name>localhost.localdomain-releases</name>
-        <url>http://192.168.1.241:8081/artifactory/webapp-libs-release</url>
-    </repository>
-</distributionManagement>
 </project>
