@@ -37,10 +37,6 @@
 			<scope>runtime</scope>
 		</dependency>
 		
-		
-		
-		
-		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -67,5 +63,11 @@
 			</plugin>
 		</plugins>
 	</build>
-
+<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>buildserver-releases</name>
+        <url>http://192.168.1.247:8082/artifactory/iwayq-libs-release</url>
+    </repository>
+</distributionManagement>
 </project>
