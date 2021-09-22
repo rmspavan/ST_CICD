@@ -207,14 +207,20 @@
   </dependencyManagement>
 
   <scm>
-    <connection>scm:git:git@github.com:jleetutorial/maven-project.git</connection>
-    <developerConnection>scm:git:git@github.com:jleetutorial/maven-project.git</developerConnection>
+    <connection>scm:git:git@github.com:rmspavan/ST_CICD.git</connection>
+    <developerConnection>scm:git:git@github.com:rmspavan/ST_CICD.git</developerConnection>
     <tag>HEAD</tag>
-    <url>http://github.com/jleetutorial/maven-project</url>
+    <url>https://github.com/rmspavan/ST_CICD</url>
   </scm>
 
   <prerequisites>
-    <maven>3.0.3</maven>
+    <maven>3.8.2</maven>
   </prerequisites>
-
+  <distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>localhost.localdomain-releases</name>
+        <url>http://192.168.1.241:8081/artifactory/webapp-libs-release</url>
+    </repository>
+</distributionManagement>
 </project>
