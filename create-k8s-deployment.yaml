@@ -3,22 +3,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: iwayq-deploy
+  name: webapp
   labels:
-    app: iwayq-app
+    app: webapp
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: iwayq-app
+      app: webapp
   template:
     metadata:
       labels:
-        app: iwayq-app
+        app: webapp
     spec:
       containers:
-      - name: iwayq-container
-        image: iwayqdockertest/iwayq:1.0
+      - name: webapp-container
+        image: 192.168.1.212:5000/webapp:latest
         ports:
         - containerPort: 8080
 ...
@@ -28,13 +28,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: iwayq-service
+  name: webapp-service
   labels:
-    app: iwayq-app
+    app: webapp
 spec:
   selector:
-    app: iwayq-app
-
+    app: webapp
   type: NodePort
   ports:
   - nodePort: 31000
